@@ -1,8 +1,8 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
 export "FLUTTER_ROOT=/Users/kimjaehoon/Developer/flutter"
-export "FLUTTER_APPLICATION_PATH=/Users/kimjaehoon/AndroidStudioProjects/flutter_app_prt"
-export "FLUTTER_TARGET=/Users/kimjaehoon/AndroidStudioProjects/flutter_app_prt/lib/main.dart"
+export "FLUTTER_APPLICATION_PATH=/Users/kimjaehoon/Documents/GitHub/jaehoonkimm.github.io/ERICA_ReminderApp"
+export "FLUTTER_TARGET=/Users/kimjaehoon/Documents/GitHub/jaehoonkimm.github.io/ERICA_ReminderApp/lib/main.dart"
 export "FLUTTER_BUILD_DIR=build"
 export "SYMROOT=${SOURCE_ROOT}/../build/ios"
 export "FLUTTER_FRAMEWORK_DIR=/Users/kimjaehoon/Developer/flutter/bin/cache/artifacts/engine/ios"
