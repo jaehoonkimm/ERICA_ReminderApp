@@ -8,12 +8,14 @@ void main() {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(140.0),
           child: AppBar(
-            title: Text(
-              'Reminder List',
-              style: TextStyle(
-                fontSize: 50.0,
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
+            bottom: PreferredSize(
+              child : Text(
+                'Reminder List',
+                style: TextStyle(
+                  fontSize: 50.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
             backgroundColor: Colors.blue,
@@ -26,31 +28,23 @@ void main() {
 }
 
 class TodoPage extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-      ) ,
+      child: Column(
+        children: <Widget>[
+          Column(
+            children: [
+//              Container(
+//                margin: const EdgeInsets.all(8.0),
+//                color: Colors.white,
+//                width: 500.0,
+//                height: 110.0,
+//              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
-
-//class MyHomePage extends StatefulWidget {
-//  MyHomePage({Key key, this.title}) : super(key: key);
-//  final String title;
-//
-//  @override
-//  _MyHomePageState createState() => _MyHomePageState();
-//}
-//
-//class _MyHomePageState extends State<MyHomePage> {
-//  int _counter = 0;
-//
-//  void _incrementCounter() {
-//    setState(() {
-//
-//      _counter++;
-//    });
-//  }
-//
