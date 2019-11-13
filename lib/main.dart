@@ -17,8 +17,12 @@ void main() {
                   fontWeight: FontWeight.w600,
                 ),
               ),
+              preferredSize: null,
             ),
             backgroundColor: Colors.blue,
+              title: Icon(
+                Icons.add , color: Colors.white,
+              ),
           ),
         ),
         body: TodoPage(),
@@ -35,12 +39,36 @@ class TodoPage extends StatelessWidget {
         children: <Widget>[
           Column(
             children: [
-//              Container(
-//                margin: const EdgeInsets.all(8.0),
-//                color: Colors.white,
-//                width: 500.0,
-//                height: 110.0,
-//              ),
+              Container(
+                margin: const EdgeInsets.all(8.0),
+                color: Colors.white,
+                width: 500.0,
+                height: 110.0,
+              ),
+              Container(
+                margin: const EdgeInsets.all(8.0),
+                color: Colors.white,
+                width: 500.0,
+                height: 110.0,
+              ),
+              Container(
+                margin: const EdgeInsets.all(8.0),
+                color: Colors.white,
+                width: 500.0,
+                height: 110.0,
+              ),
+              Container(
+                margin: const EdgeInsets.all(8.0),
+                color: Colors.white,
+                width: 500.0,
+                height: 110.0,
+              ),
+              Container(
+                margin: const EdgeInsets.all(8.0),
+                color: Colors.white,
+                width: 500.0,
+                height: 110.0,
+              ),
             ],
           ),
         ],
