@@ -20,8 +20,12 @@ void main() {
               preferredSize: null,
             ),
             backgroundColor: Colors.blue,
-              title: Icon(
-                Icons.add , color: Colors.white,
+              title: Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.add , color: Colors.white,
+                  ),
+                ],
               ),
           ),
         ),
