@@ -39,10 +39,10 @@ class TopBar extends StatelessWidget {
           const Icon(
             Icons.add ,
             color: Colors.white,
-            size: 30.0,
+            size: 50.0,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 300.0),
+            padding: const EdgeInsets.only(left: 282.0),
             child: const Icon(
               Icons.search ,
               color: Colors.white,
@@ -65,31 +65,62 @@ class TodoPage extends StatelessWidget {
           Column(
             children: [
               Container(
-                margin: const EdgeInsets.all(8.0),
+                margin: const EdgeInsets.only(
+                    left: 7.0,
+                    right: 7.0,
+                    top: 7.0,
+                    bottom: 7.0,
+                ),
                 color: Colors.white,
                 width: 500.0,
                 height: 110.0,
               ),
               Container(
-                margin: const EdgeInsets.all(8.0),
+                margin: const EdgeInsets.only(
+                  left: 7.0,
+                  right: 7.0,
+                  bottom: 7.0,
+                ),
                 color: Colors.white,
                 width: 500.0,
                 height: 110.0,
               ),
               Container(
-                margin: const EdgeInsets.all(8.0),
+                margin: const EdgeInsets.only(
+                  left: 7.0,
+                  right: 7.0,
+                  bottom: 7.0,
+                ),
                 color: Colors.white,
                 width: 500.0,
                 height: 110.0,
               ),
               Container(
-                margin: const EdgeInsets.all(8.0),
+                margin: const EdgeInsets.only(
+                  left: 7.0,
+                  right: 7.0,
+                  bottom: 7.0,
+                ),
                 color: Colors.white,
                 width: 500.0,
                 height: 110.0,
               ),
               Container(
-                margin: const EdgeInsets.all(8.0),
+                margin: const EdgeInsets.only(
+                  left: 7.0,
+                  right: 7.0,
+                  bottom: 7.0,
+                ),
+                color: Colors.white,
+                width: 500.0,
+                height: 110.0,
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  left: 7.0,
+                  right: 7.0,
+                  bottom: 7.0,
+                ),
                 color: Colors.white,
                 width: 500.0,
                 height: 110.0,
