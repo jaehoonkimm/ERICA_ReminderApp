@@ -139,3 +139,20 @@ class TodoPageState extends State<TodoPage> {
     );
   }
 }
+
+class AddScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Add Reminder")
+      ),
+      body: TextField(
+        autofocus: true,
+        onSubmitted: (val) {
+          Navigator.of(context).pop({'item':val});
+        },
+      )
+    );
+  }
+}
