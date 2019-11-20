@@ -22,10 +22,21 @@ void main() {
             backgroundColor: Colors.blue,
               title: Row(
                 children: <Widget>[
-                  Icon(
-                    Icons.add , color: Colors.white,
+                  const Icon(
+                    Icons.add ,
+                    color: Colors.white,
+                    size: 30.0,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 322.0),
+                    child: const Icon(
+                      Icons.search ,
+                      color: Colors.white,
+                      size: 30.0,
+                    ),
                   ),
                 ],
+
               ),
           ),
         ),
