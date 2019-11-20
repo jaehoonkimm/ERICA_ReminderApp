@@ -20,30 +20,40 @@ void main() {
               preferredSize: null,
             ),
             backgroundColor: Colors.blue,
-              title: Row(
-                children: <Widget>[
-                  const Icon(
-                    Icons.add ,
-                    color: Colors.white,
-                    size: 30.0,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 322.0),
-                    child: const Icon(
-                      Icons.search ,
-                      color: Colors.white,
-                      size: 30.0,
-                    ),
-                  ),
-                ],
-
-              ),
+            title: TopBar(),
           ),
         ),
         body: TodoPage(),
       ),
     ),
   );
+}
+
+class TopBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Center(
+      child: Row(
+        children: <Widget>[
+          const Icon(
+            Icons.add ,
+            color: Colors.white,
+            size: 30.0,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 300.0),
+            child: const Icon(
+              Icons.search ,
+              color: Colors.white,
+              size: 50.0,
+            ),
+          ),
+        ],
+
+      ),
+    );
+  }
 }
 
 class TodoPage extends StatelessWidget {
