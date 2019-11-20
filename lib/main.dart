@@ -50,15 +50,22 @@ class TopBar extends StatelessWidget {
             ),
           ),
         ],
-
       ),
     );
   }
 }
 
-class TodoPage extends StatelessWidget {
+class TodoPage extends StatefulWidget {
+  @override
+  createState() => new TodoPageState();
+}
+
+class TodoPageState extends State<TodoPage> {
   @override
   Widget build(BuildContext context) {
+
+    List<String> _todoThings = [];
+
     return Center(
       child: Column(
         children: <Widget>[
