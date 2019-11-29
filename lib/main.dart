@@ -4,7 +4,6 @@ void main() {
   return runApp(
     MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.grey[300],
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(140.0),
           child: AppBar(
@@ -29,6 +28,7 @@ void main() {
   );
 }
 
+// 상단바
 class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -36,6 +36,7 @@ class TopBar extends StatelessWidget {
     return Center(
       child: Row(
         children: <Widget>[
+          // + 아이콘 추가
           const Icon(
             Icons.add ,
             color: Colors.white,
@@ -65,78 +66,102 @@ class TodoPageState extends State<TodoPage> {
   Widget build(BuildContext context) {
 
     List<String> _todoThings = [];
+      return Scaffold(
+        // List BackGround color
+        backgroundColor: Colors.grey[400],
+        body: ListView(
+          children: <Widget>[
+            Container(
+              margin: const EdgeInsets.only(
+                left: 7.0,
+                right: 7.0,
+                top: 7.0,
+                bottom: 7.0,
+              ),
+              color: Colors.white,
+              width: 500.0,
+              height: 60.0,
 
-    return Center(
-      child: Column(
-        children: <Widget>[
-          Column(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(
-                    left: 7.0,
-                    right: 7.0,
-                    top: 7.0,
-                    bottom: 7.0,
-                ),
-                color: Colors.white,
-                width: 500.0,
-                height: 110.0,
+              child: ListTile(
+                leading: Icon(Icons.arrow_right),
+                title: Text("할 일"),
               ),
-              Container(
-                margin: const EdgeInsets.only(
-                  left: 7.0,
-                  right: 7.0,
-                  bottom: 7.0,
-                ),
-                color: Colors.white,
-                width: 500.0,
-                height: 110.0,
-              ),
-              Container(
-                margin: const EdgeInsets.only(
-                  left: 7.0,
-                  right: 7.0,
-                  bottom: 7.0,
-                ),
-                color: Colors.white,
-                width: 500.0,
-                height: 110.0,
-              ),
-              Container(
-                margin: const EdgeInsets.only(
-                  left: 7.0,
-                  right: 7.0,
-                  bottom: 7.0,
-                ),
-                color: Colors.white,
-                width: 500.0,
-                height: 110.0,
-              ),
-              Container(
-                margin: const EdgeInsets.only(
-                  left: 7.0,
-                  right: 7.0,
-                  bottom: 7.0,
-                ),
-                color: Colors.white,
-                width: 500.0,
-                height: 110.0,
-              ),
-              Container(
-                margin: const EdgeInsets.only(
-                  left: 7.0,
-                  right: 7.0,
-                  bottom: 7.0,
-                ),
-                color: Colors.white,
-                width: 500.0,
-                height: 110.0,
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
+            ),
+          ],
+        ),
+      );
+
+//    return Center(
+//      child: Column(
+//        children: <Widget>[
+//          Column(
+//            children: [
+//              Container(
+//                margin: const EdgeInsets.only(
+//                    left: 7.0,
+//                    right: 7.0,
+//                    top: 7.0,
+//                    bottom: 7.0,
+//                ),
+//                color: Colors.white,
+//                width: 500.0,
+//                height: 110.0,
+//              ),
+//              Container(
+//                margin: const EdgeInsets.only(
+//                  left: 7.0,
+//                  right: 7.0,
+//                  bottom: 7.0,
+//                ),
+//                color: Colors.white,
+//                width: 500.0,
+//                height: 110.0,
+//              ),
+//              Container(
+//                margin: const EdgeInsets.only(
+//                  left: 7.0,
+//                  right: 7.0,
+//                  bottom: 7.0,
+//                ),
+//                color: Colors.white,
+//                width: 500.0,
+//                height: 110.0,
+//              ),
+//              Container(
+//                margin: const EdgeInsets.only(
+//                  left: 7.0,
+//                  right: 7.0,
+//                  bottom: 7.0,
+//                ),
+//                color: Colors.white,
+//                width: 500.0,
+//                height: 110.0,
+//              ),
+//              Container(
+//                margin: const EdgeInsets.only(
+//                  left: 7.0,
+//                  right: 7.0,
+//                  bottom: 7.0,
+//                ),
+//                color: Colors.white,
+//                width: 500.0,
+//                height: 110.0,
+//              ),
+//              Container(
+//                margin: const EdgeInsets.only(
+//                  left: 7.0,
+//                  right: 7.0,
+//                  bottom: 7.0,
+//                ),
+//                color: Colors.white,
+//                width: 500.0,
+//                height: 110.0,
+//              ),
+//            ],
+//          ),
+//        ],
+//      ),
+//    );
   }
 }
 
