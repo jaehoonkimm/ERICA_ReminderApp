@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/kimjaehoon/Documents/GitHub/jaehoonkimm.github.io/ERICA_ReminderApp/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/Users/kimjaehoon/AndroidStudioProjects/ERICA_ReminderApp/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
                 {
-                    "source": "/Users/kimjaehoon/Documents/GitHub/jaehoonkimm.github.io/ERICA_ReminderApp/android/app/src/main/res/values/styles.xml",
+                    "source": "/Users/kimjaehoon/AndroidStudioProjects/ERICA_ReminderApp/android/app/src/main/res/values/styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

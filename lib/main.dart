@@ -8,7 +8,7 @@ void main() {
           preferredSize: Size.fromHeight(140.0),
           child: AppBar(
             bottom: PreferredSize(
-              child : Text(
+              child: Text(
                 'Reminder List',
                 style: TextStyle(
                   fontSize: 50.0,
@@ -38,14 +38,14 @@ class TopBar extends StatelessWidget {
         children: <Widget>[
           // + 아이콘 추가
           const Icon(
-            Icons.add ,
+            Icons.add,
             color: Colors.white,
             size: 50.0,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 282.0),
             child: const Icon(
-              Icons.search ,
+              Icons.search,
               color: Colors.white,
               size: 50.0,
             ),
@@ -56,6 +56,8 @@ class TopBar extends StatelessWidget {
   }
 }
 
+// Todo_Page 표출하는 본체 class
+// stateful widget으로 화면 변환이 가
 class TodoPage extends StatefulWidget {
   @override
   createState() => new TodoPageState();
@@ -63,105 +65,68 @@ class TodoPage extends StatefulWidget {
 
 class TodoPageState extends State<TodoPage> {
   @override
-  Widget build(BuildContext context) {
+
 
     List<String> _todoThings = [];
-      return Scaffold(
-        // List BackGround color
-        backgroundColor: Colors.grey[400],
-        body: ListView(
-          children: <Widget>[
-            Container(
-              margin: const EdgeInsets.only(
-                left: 7.0,
-                right: 7.0,
-                top: 7.0,
-                bottom: 7.0,
-              ),
-              color: Colors.white,
-              width: 500.0,
-              height: 60.0,
 
-              child: ListTile(
-                leading: Icon(Icons.arrow_right),
-                title: Text("할 일"),
-              ),
-            ),
-          ],
-        ),
+    Widget _buildList() {
+      return new ListView.builder(
+          itemBuilder: (context, index) {
+            if (index < _todoThings.length) {
+              return _buildItem(_todoThings[index]);
+        }
+      }
       );
+      }
 
-//    return Center(
-//      child: Column(
+    Widget _buildItem(String todoText) {
+      return new ListTile(
+        title: Text(todoText),
+      );
+    }
+
+    _addItem() {
+      setState(() {
+        int index = _todoThings.length;
+        _todoThings.add('ToDo_Item_$index');
+      });
+    }
+
+    // Scaffold 위젯 생성
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      // List BackGround color
+      backgroundColor: Colors.grey[400],
+      floatingActionButton: new FloatingActionButton(
+        onPressed: _addItem, //버튼 클릭시 _addItem 함수 작동
+        child: new Icon(
+            Icons.add,
+            size: 50.0,
+            color: Colors.white,
+        ),
+      ),
+      body: _buildList(),
+//      body: ListView(
 //        children: <Widget>[
-//          Column(
-//            children: [
-//              Container(
-//                margin: const EdgeInsets.only(
-//                    left: 7.0,
-//                    right: 7.0,
-//                    top: 7.0,
-//                    bottom: 7.0,
-//                ),
-//                color: Colors.white,
-//                width: 500.0,
-//                height: 110.0,
-//              ),
-//              Container(
-//                margin: const EdgeInsets.only(
-//                  left: 7.0,
-//                  right: 7.0,
-//                  bottom: 7.0,
-//                ),
-//                color: Colors.white,
-//                width: 500.0,
-//                height: 110.0,
-//              ),
-//              Container(
-//                margin: const EdgeInsets.only(
-//                  left: 7.0,
-//                  right: 7.0,
-//                  bottom: 7.0,
-//                ),
-//                color: Colors.white,
-//                width: 500.0,
-//                height: 110.0,
-//              ),
-//              Container(
-//                margin: const EdgeInsets.only(
-//                  left: 7.0,
-//                  right: 7.0,
-//                  bottom: 7.0,
-//                ),
-//                color: Colors.white,
-//                width: 500.0,
-//                height: 110.0,
-//              ),
-//              Container(
-//                margin: const EdgeInsets.only(
-//                  left: 7.0,
-//                  right: 7.0,
-//                  bottom: 7.0,
-//                ),
-//                color: Colors.white,
-//                width: 500.0,
-//                height: 110.0,
-//              ),
-//              Container(
-//                margin: const EdgeInsets.only(
-//                  left: 7.0,
-//                  right: 7.0,
-//                  bottom: 7.0,
-//                ),
-//                color: Colors.white,
-//                width: 500.0,
-//                height: 110.0,
-//              ),
-//            ],
+//          Container(
+//            margin: const EdgeInsets.only(
+//              left: 7.0,
+//              right: 7.0,
+//              top: 7.0,
+//              bottom: 7.0,
+//            ),
+//            color: Colors.white,
+//            width: 500.0,
+//            height: 60.0,
+//
+//            child: ListTile(
+//              leading: Icon(Icons.arrow_right),
+//              title: Text("할 일"),
+//            ),
 //          ),
 //        ],
 //      ),
-//    );
+    );
   }
 }
 
@@ -169,15 +134,12 @@ class AddScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Add Reminder")
-      ),
-      body: TextField(
-        autofocus: true,
-        onSubmitted: (val) {
-          Navigator.of(context).pop({'item':val});
-        },
-      )
-    );
+        appBar: AppBar(title: Text("Add Reminder")),
+        body: TextField(
+          autofocus: true,
+          onSubmitted: (val) {
+            Navigator.of(context).pop({'item': val});
+          },
+        ));
   }
 }
