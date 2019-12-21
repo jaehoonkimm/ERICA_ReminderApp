@@ -85,12 +85,15 @@ class TodoPageState extends State<TodoPage> {
       );
     }
 
-    _addItem() {
+    _addItem(String item) {
       setState(() {
-        int index = _todoThings.length;
-        _todoThings.add('ToDo_Item_$index');
+        //int index = _todoThings.length;
+        //_todoThings.add('ToDo_Item_$index');
+        _todoThings.add(item);
       });
     }
+
+
 
     // Scaffold 위젯 생성
   Widget build(BuildContext context) {
@@ -98,7 +101,7 @@ class TodoPageState extends State<TodoPage> {
       // List BackGround color
       backgroundColor: Colors.grey[400],
       floatingActionButton: new FloatingActionButton(
-        onPressed: _addItem, //버튼 클릭시 _addItem 함수 작동
+        onPressed: _navigatorAddScreen, //버튼 클릭시 _addItem 함수 작동
         child: new Icon(
             Icons.add,
             size: 50.0,
@@ -134,12 +137,15 @@ class AddScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Add Reminder")),
+        appBar: AppBar(
+            title: Text("Add To Do Things")),
         body: TextField(
           autofocus: true,
           onSubmitted: (val) {
             Navigator.of(context).pop({'item': val});
           },
-        ));
+        )
+    );
   }
 }
+
