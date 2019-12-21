@@ -57,7 +57,6 @@ class TopBar extends StatelessWidget {
 }
 
 // Todo_Page 표출하는 본체 class
-// stateful widget으로 화면 변환이 가
 class TodoPage extends StatefulWidget {
   @override
   createState() => new TodoPageState();
@@ -65,7 +64,6 @@ class TodoPage extends StatefulWidget {
 
 class TodoPageState extends State<TodoPage> {
   @override
-
 
     List<String> _todoThings = [];
 
@@ -103,8 +101,6 @@ class TodoPageState extends State<TodoPage> {
       _addItem(results["item"]);
     }
   }
-
-
 
     // Scaffold 위젯 생성
   Widget build(BuildContext context) {
@@ -159,4 +155,3 @@ class AddScreen extends StatelessWidget {
     );
   }
 }
-
