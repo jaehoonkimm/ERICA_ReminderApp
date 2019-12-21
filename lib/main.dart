@@ -33,28 +33,30 @@ class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Center(
-      child: Row(
-        children: <Widget>[
-          // + 아이콘 추가
-          const Icon(
-            Icons.add ,
-            color: Colors.white,
-            size: 50.0,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 282.0),
-            child: const Icon(
-              Icons.search ,
-              color: Colors.white,
-              size: 50.0,
-            ),
-          ),
-        ],
-      ),
+
+//    return Center(
+//      child: Row(
+//        children: <Widget>[
+//          // + 아이콘 추가
+//          const Icon(
+//            Icons.add ,
+//            color: Colors.white,
+//            size: 50.0,
+//          ),
+//          Padding(
+//            padding: const EdgeInsets.only(left: 282.0),
+//            child: const Icon(
+//              Icons.search ,
+//              color: Colors.white,
+//              size: 50.0,
+//            ),
+//          ),
+//        ],
+//      ),
     );
   }
 }
+
 
 class TodoPage extends StatefulWidget {
   @override
@@ -62,122 +64,76 @@ class TodoPage extends StatefulWidget {
 }
 
 class TodoPageState extends State<TodoPage> {
-  @override
-  Widget build(BuildContext context) {
 
     List<String> _todoThings = [];
+
+    Widget _buildToDoList() {
+      return new ListView.builder(
+          itemBuilder: (context, index) {
+            if(index < _todoThings.length) {
+              return _buildToDoItem(_todoThings[index], index);
+            }
+          }
+      );
+    }
+
+    Widget _buildToDoItem(String todoText, int index) {
+      return new ListTile(
+        title : Text(todoText),
+        onTap: () => _promptRemoveTodoItem(index),
+      );
+    }
+
+    _addToDo(){
+      setState((){
+        int index = _todoThings.length;
+        _todoThings.add('item_$index');
+      });
+    }
+
+    @override
+    Widget build(BuildContext context) {
       return Scaffold(
         // List BackGround color
         backgroundColor: Colors.grey[400],
-        body: ListView(
-          children: <Widget>[
-            Container(
-              margin: const EdgeInsets.only(
-                left: 7.0,
-                right: 7.0,
-                top: 7.0,
-                bottom: 7.0,
-              ),
-              color: Colors.white,
-              width: 500.0,
-              height: 60.0,
-
-              child: ListTile(
-                leading: Icon(Icons.arrow_right),
-                title: Text("할 일"),
-              ),
-            ),
-          ],
-        ),
+        body: _buildToDoList(),
       );
+   }
 
-//    return Center(
-//      child: Column(
-//        children: <Widget>[
-//          Column(
-//            children: [
-//              Container(
-//                margin: const EdgeInsets.only(
-//                    left: 7.0,
-//                    right: 7.0,
-//                    top: 7.0,
-//                    bottom: 7.0,
-//                ),
-//                color: Colors.white,
-//                width: 500.0,
-//                height: 110.0,
-//              ),
-//              Container(
-//                margin: const EdgeInsets.only(
-//                  left: 7.0,
-//                  right: 7.0,
-//                  bottom: 7.0,
-//                ),
-//                color: Colors.white,
-//                width: 500.0,
-//                height: 110.0,
-//              ),
-//              Container(
-//                margin: const EdgeInsets.only(
-//                  left: 7.0,
-//                  right: 7.0,
-//                  bottom: 7.0,
-//                ),
-//                color: Colors.white,
-//                width: 500.0,
-//                height: 110.0,
-//              ),
-//              Container(
-//                margin: const EdgeInsets.only(
-//                  left: 7.0,
-//                  right: 7.0,
-//                  bottom: 7.0,
-//                ),
-//                color: Colors.white,
-//                width: 500.0,
-//                height: 110.0,
-//              ),
-//              Container(
-//                margin: const EdgeInsets.only(
-//                  left: 7.0,
-//                  right: 7.0,
-//                  bottom: 7.0,
-//                ),
-//                color: Colors.white,
-//                width: 500.0,
-//                height: 110.0,
-//              ),
-//              Container(
-//                margin: const EdgeInsets.only(
-//                  left: 7.0,
-//                  right: 7.0,
-//                  bottom: 7.0,
-//                ),
-//                color: Colors.white,
-//                width: 500.0,
-//                height: 110.0,
-//              ),
-//            ],
-//          ),
-//        ],
-//      ),
-//    );
-  }
+   @override
+    Widget build(BuildContext context) {
+     return Scaffold(
+         appBar: AppBar(
+             title: Text("Add Reminder")
+         ),
+         body: _buildToDoList(),
+         floatingActionButton: new FloatingActionButton(
+         onPressed: _addToDo,
+         tooltip: "+",
+         child: new Icon(Icons.add)
+     );
+   };
 }
 
-class AddScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Add Reminder")
-      ),
-      body: TextField(
-        autofocus: true,
-        onSubmitted: (val) {
-          Navigator.of(context).pop({'item':val});
-        },
-      )
-    );
-  }
-}
+// 리스트 뷰 구현
+//ListView(
+//children: <Widget>[
+//Container(
+//margin: const EdgeInsets.only(
+//left: 7.0,
+//right: 7.0,
+//top: 7.0,
+//bottom: 7.0,
+//),
+//color: Colors.white,
+//width: 500.0,
+//height: 60.0,
+//
+//child: ListTile(
+//leading: Icon(Icons.arrow_right),
+//title: Text("김민경 바보"),
+//
+//),
+//),
+//],
+//),
