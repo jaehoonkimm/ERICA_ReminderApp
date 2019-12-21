@@ -93,6 +93,17 @@ class TodoPageState extends State<TodoPage> {
       });
     }
 
+  _navigatorAddScreen() async {
+    Map results = await Navigator.of(context).push(new MaterialPageRoute(
+      builder: (BuildContext context) {
+        return AddScreen();
+      },
+    ));
+    if(results != null && results.containsKey("item")) {
+      _addItem(results["item"]);
+    }
+  }
+
 
 
     // Scaffold 위젯 생성
