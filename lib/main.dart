@@ -70,28 +70,33 @@ class TodoPageState extends State<TodoPage> {
     return new ListView.builder(
         itemBuilder: (context, index) {
       if (index < _todoThings.length) {
-        return _buildItem(_todoThings[index]);
+        return _buildItem(_todoThings[index], index);
       }
     });
   }
 
-  _buildSwipe(int index) {
-    return Dismissible(
-      key: Key(_todoThings[index]),
-      onDismissed: (direction) {
-        setState(() {
-          _todoThings.removeAt(index);
-        });
-      },
-    );
-  }
+//  _buildSwipe(int index) {
+//    return Dismissible(
+//      key: Key(_todoThings[index]),
+//      onDismissed: (direction) {
+//        setState(() {
+//          _todoThings.removeAt(index);
+//        });
+//      },
+//    );
+//  }
 
   // ToDo_List 목록에 추가하는 위젯
-  _buildItem(String todoText) {
+  _buildItem(String todoText, int index) {
     return new ListTile(
       title: Text(todoText),
       onTap: () => _removeTodo(index),
     );
+  }
+
+
+  void _removeTool(int index) {
+    setState(() => _todoThings.removeAt(index));
   }
 
   //ToDo_List Things 선택(onTap)시 반응 위젯
@@ -108,7 +113,7 @@ class TodoPageState extends State<TodoPage> {
             ),
             new FlatButton(
                 onPressed: () {
-                  _removeTodo(index);
+                  _removeTool(index);
                   Navigator.of(context).pop();
                 },
                 child: new Text('Complete'),
