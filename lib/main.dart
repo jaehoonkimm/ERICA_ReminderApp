@@ -185,13 +185,17 @@ class AddScreen extends StatelessWidget {
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(140.0),
-        child: AppBar(title:
-        Text("Add To Do Things",
+        child: AppBar(
+          bottom: PreferredSize( //PreferredSize를 통해 Text Style 재정의 가능
+        child: Text("Add To Do Things",
         style:
           TextStyle(
-            fontSize: 30.0,
+            fontSize: 50.0,
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
           ),
         )
+        ),
         ),
         ),
         body: TextField(
@@ -203,10 +207,6 @@ class AddScreen extends StatelessWidget {
   }
 }
 //
-//MaterialApp(
-//home: Scaffold(
-//appBar: PreferredSize(
-//preferredSize: Size.fromHeight(140.0),
 //child: AppBar(
 //bottom: PreferredSize(
 //child: Text(
@@ -215,4 +215,5 @@ class AddScreen extends StatelessWidget {
 //fontSize: 50.0,
 //color: Colors.white,
 //fontWeight: FontWeight.w600,
+//),
 //),
