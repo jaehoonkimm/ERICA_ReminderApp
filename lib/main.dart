@@ -86,11 +86,39 @@ class TodoPageState extends State<TodoPage> {
     );
   }
 
+  // ToDo_List 목록에 추가하는 위젯
   _buildItem(String todoText) {
     return new ListTile(
       title: Text(todoText),
+      onTap: () => _removeTodo(index),
     );
   }
+
+  //ToDo_List Things 선택(onTap)시 반응 위젯
+  _removeTodo(int index) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return new AlertDialog(
+          title: new Text('"${_todoThings[index]}" Completed this task?'),
+          actions: <Widget>[
+            new FlatButton(
+                onPressed: ()=> Navigator.of(context).pop(),
+                child: new Text('Cancel'),
+            ),
+            new FlatButton(
+                onPressed: () {
+                  _removeTodo(index);
+                  Navigator.of(context).pop();
+                },
+                child: new Text('Complete'),
+            )
+          ]
+        );
+      }
+    );
+  }
+
 
   _addItem(String item) {
     setState(() {
