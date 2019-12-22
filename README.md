@@ -20,20 +20,32 @@ Do you want to solve this problem? Then you have to use an app to organize your 
 
 ## Install
 1. you have to download latest version Flutter SDK :
+
     $ git clone -b stable https://github.com/flutter/flutter.git
+    
 2. add path about flutter tool
+
     $ export PATH=$PATH:`pwd`/flutter/bin
+    
 > if you don't want to add this path every time, write in '$HOME/.bash_profile'
 > to complete this process, you can following code.
+
     $ vim .bash_profile
 > then open in bash_profile(if you are using zsh, in .zshrc), write following code.
+
     $ export PATH=$PATH:flutter/bin
 > finally, write in terminal
+
     $ source $HOME/ .bash_profile (or .zshrc)
+    
 3. write in terminal to update flutter
+
     $ flutter upgrade
+
 4. use flutter doctor to solve some latent problem
+
 > Maybe you have to install git and curl, next step
+
     $ sudo apt install git curl
     $ flutter doctor
 
