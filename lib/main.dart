@@ -145,13 +145,15 @@ class TodoPageState extends State<TodoPage> {
   void _removeTool(int index) {
     setState(() => _todoThings.removeAt(index));
     showSimpleNotification(
-      Container(
-        child: Text("Task Completed",
-        style: TextStyle(
-          fontSize: 30.0,
-          color: Colors.white,
-          fontWeight: FontWeight.w600,
-        ),),
+      Center(
+        child: Container(
+          child: Text("Task Completed",
+          style: TextStyle(
+            fontSize: 30.0,
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+          ),),
+        ),
       ),
       background: Colors.lightBlue,
     );
