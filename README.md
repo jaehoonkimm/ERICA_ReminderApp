@@ -6,9 +6,10 @@ ERICA_ReminderApp is a part of projects for open source software class in Erica 
 > - Major : Department of Information Sociology (정보사회학과)
 > - Name : Jaehoon Kim (김재훈)
 
-## What is ReminderApp?
+## Main Screen
 <img width="361" alt="1" src="https://user-images.githubusercontent.com/43606451/71322669-a322f080-250d-11ea-869c-3812c46f6867.png">
 
+## What is ReminderApp?
 > This application use Flutter with dart with Google Open source Application development cross platform.
 Usually we often forget things to do. Unfortunately, human memory is not very good, especially when there is a lot to do.
 The more Things you have to do in your brain, the more stressed you are and the less productive you are. 
@@ -55,7 +56,34 @@ Do you want to solve this problem? Then you have to use an app to organize your 
     $ flutter doctor
 
 
-## ScreenShots
+## Application features
+><img width="360" alt="image" src="https://user-images.githubusercontent.com/43606451/71322745-44aa4200-250e-11ea-9920-4d1d1268379a.png">
+
+>You can use the '+' button in the lower right corner to go to the 'Add To Do Things page'.
+
+><img width="358" alt="3" src="https://user-images.githubusercontent.com/43606451/71322671-a3bb8700-250d-11ea-82e7-8b7685a0b4e3.png">
+
+>As shown in the photo, 'Open Source Software Homework' has been added. you can also see the 'Task Added' notification showed at the top in screen.
+
+><img width="360" alt="4" src="https://user-images.githubusercontent.com/43606451/71322672-a3bb8700-250d-11ea-8eb7-c5593658ea2b.png">
+
+>I've added more things.
+
+><img width="360" alt="5" src="https://user-images.githubusercontent.com/43606451/71322673-a3bb8700-250d-11ea-8537-fff9b5b887a6.png">
+
+>If you click 'to do things' on the list, the following window will appear. You can use the 'Cancel' or 'Complete' button to delete the to do in list or to dismiss the decision window.
+
+><img width="357" alt="6" src="https://user-images.githubusercontent.com/43606451/71322674-a4541d80-250d-11ea-96e9-f9ebbacbd044.png">
+
+>If you click the 'Complete' button, this to do is deleted from the list, and the 'Task Completed' notification appears at the top.
+
+><img width="359" alt="8" src="https://user-images.githubusercontent.com/43606451/71322676-a4541d80-250d-11ea-8062-b3282d142b1b.png">
+
+>You can constantly add to do things. To do list is implemented as ListView function, so you can scroll it.
+
+><img width="355" alt="10" src="https://user-images.githubusercontent.com/43606451/71322678-a4ecb400-250d-11ea-8b91-e0afea494829.png">
+
+>By pressing the 'A Trash button' at the top of the screen, you can delete all your tasks just one click. You will also see a notification at the top of the screen indicating that it has been deleted.
 
 
 ## LICENSE
