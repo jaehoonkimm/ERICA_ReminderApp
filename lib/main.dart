@@ -160,6 +160,7 @@ class TodoPageState extends State<TodoPage> {
   }
 
 
+
   //ToDo_List Things 선택(onTap)시 반응 위젯
   _removeTodo(int index) {
     showDialog(
@@ -210,55 +211,6 @@ class TodoPageState extends State<TodoPage> {
     );
   }
 
-//
-//  //ToDo_List Things 선택(onTap)시 반응 위젯
-//  _removeTodo(int index) {
-//    showDialog(
-//      context: context,
-//      builder: (BuildContext context) {
-//        return new AlertDialog(
-//          backgroundColor: Colors.teal[200],
-//          title: new Text('"${_todoThings[index]}" Completed this task?',
-//          style:
-//            TextStyle(
-//              fontSize: 20.0,
-//              color: Colors.white,
-//              fontWeight: FontWeight.w600,
-//            ),
-//          ),
-//          actions: <Widget>[
-//            new FlatButton(
-//              color: Colors.white,
-//                onPressed: ()=> Navigator.of(context).pop(),
-//                child: new Text('Cancel',
-//                style:
-//                  TextStyle(
-//                    color: Colors.teal[200],
-//                    fontWeight: FontWeight.w600,
-//                    fontSize: 20.0,
-//                  ),),
-//            ),
-//            new FlatButton(
-//              color: Colors.white,
-//                onPressed: () {
-//                  _removeTool(index);
-//                  Navigator.of(context).pop();
-//                },
-//                child: new Text('Complete',
-//                style:
-//                  TextStyle(
-//                    color: Colors.teal[200],
-//                    fontWeight: FontWeight.w600,
-//                    fontSize: 20.0,
-//                  ),),
-//            )
-//          ]
-//        );
-//      }
-//    );
-//  }
-
-
   _addItem(String item) {
     showSimpleNotification(
       Center(
@@ -296,7 +248,7 @@ class TodoPageState extends State<TodoPage> {
       backgroundColor: Colors.grey[400],
       floatingActionButton: new FloatingActionButton(
         backgroundColor: Colors.teal[300],
-        onPressed: _navigatorAddScreen, //버튼 클릭시 _addItem 함수 작동
+        onPressed: _navigatorAddScreen, //버튼 클릭시 _navigatorAddScreen 함수 작동
         child: new Icon(
           Icons.add,
           size: 50.0,
