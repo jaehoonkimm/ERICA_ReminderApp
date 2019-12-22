@@ -282,6 +282,7 @@ class TodoPageState extends State<TodoPage> {
       // List BackGround color
       backgroundColor: Colors.grey[400],
       floatingActionButton: new FloatingActionButton(
+        backgroundColor: Colors.teal[300],
         onPressed: _navigatorAddScreen, //버튼 클릭시 _addItem 함수 작동
         child: new Icon(
           Icons.add,
