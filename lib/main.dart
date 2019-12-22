@@ -94,7 +94,6 @@ class TodoPageState extends State<TodoPage> {
     );
   }
 
-
   void _removeTool(int index) {
     setState(() => _todoThings.removeAt(index));
   }
@@ -127,8 +126,6 @@ class TodoPageState extends State<TodoPage> {
 
   _addItem(String item) {
     setState(() {
-      //int index = _todoThings.length;
-      //_todoThings.add('ToDo_Item_$index');
       _todoThings.add(item);
     });
   }
@@ -186,7 +183,13 @@ class AddScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Add To Do Things")),
+        appBar: AppBar(title:
+        Text("Add To Do Things",
+        style:
+          TextStyle(
+            fontSize: 30.0,
+          ),)
+        ),
         body: TextField(
           autofocus: true,
           onSubmitted: (val) {
