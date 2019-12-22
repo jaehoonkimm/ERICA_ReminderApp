@@ -260,6 +260,19 @@ class TodoPageState extends State<TodoPage> {
 
 
   _addItem(String item) {
+    showSimpleNotification(
+      Center(
+        child: Container(
+          child: Text("Task Added",
+            style: TextStyle(
+              fontSize: 30.0,
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),),
+        ),
+      ),
+      background: Colors.lightBlue,
+    );
     setState(() {
       _todoThings.add(item);
     });
