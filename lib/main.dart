@@ -207,11 +207,39 @@ class AddScreen extends StatelessWidget {
         ),
         ),
         backgroundColor: Colors.grey[400],
-        body: TextField(
-          autofocus: true,
-          onSubmitted: (val) {
-            Navigator.of(context).pop({'item': val});
-          },
+
+        //        children: <Widget>[
+//          Container(
+//            margin: const EdgeInsets.only(
+//              left: 7.0,
+//              right: 7.0,
+//              top: 7.0,
+//              bottom: 7.0,
+//            ),
+//            color: Colors.white,
+//            width: 500.0,
+//            height: 60.0,
+
+        body: Container(
+          margin: const EdgeInsets.only(
+            left: 10.0,
+            right: 10.0,
+            top: 10.0,
+            bottom: 10.0,
+          ),
+          color: Colors.teal,
+          width: 500.0,
+          height: 60.0,
+          child: TextField(
+            style: TextStyle(
+              fontSize: 30.0,
+              color: Colors.white,
+            ),
+            autofocus: true,
+            onSubmitted: (val) {
+              Navigator.of(context).pop({'item': val});
+            },
+          ),
         ));
   }
 }
