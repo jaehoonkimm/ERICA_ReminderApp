@@ -21,8 +21,11 @@ Do you want to solve this problem? Then you have to use an app to organize your 
 > Xcode - develop for iOS and macOS (at least xcode 11.0)
 
 > Android Studio (at least version 3.5)
+>> To test this app, you must use Android Studio
 
 > Flutter (at least v1.9.1)
+
+> IOS Simulator(in xcode) or Android Device for test 
 
 ## Install
 1. you have to download latest version Flutter SDK :
@@ -55,6 +58,17 @@ Do you want to solve this problem? Then you have to use an app to organize your 
     $ sudo apt install git curl
     $ flutter doctor
 
+5. open this project in Android Studio, then install Dart SDK
+
+>You have to use following link
+
+    https://dart.dev/get-dart
+
+6. open main.dart file in this project, and live out Simulator tool or connect your device on PC(you should get developer authority in your android device,)
+
+>You Also have to click 'get dependency' button in Android Studio, when you open 'main.dart' file.
+    
+7. Click run this App in main.dart.    
 
 ## Application features
 ><img width="360" alt="image" src="https://user-images.githubusercontent.com/43606451/71322745-44aa4200-250e-11ea-9920-4d1d1268379a.png">
