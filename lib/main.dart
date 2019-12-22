@@ -88,16 +88,43 @@ class TodoPageState extends State<TodoPage> {
 
   // ToDo_List 목록에 추가하는 위젯
   _buildItem(String todoText, int index) {
-    return new ListTile(
-      title: Text(todoText,
-      style:
-      TextStyle(
-        fontSize: 30.0,
-        color: Colors.white,
-      ),),
-      onTap: () => _removeTodo(index),
+    return Container(
+      margin: const EdgeInsets.only(
+        left: 10.0,
+        right: 10.0,
+        top: 15.0,
+      ),
+      color: Colors.green[400],
+      width: 500.0,
+      height: 60.0,
+      child: new ListTile(
+        title: Text(todoText,
+        style:
+        TextStyle(
+          fontWeight: FontWeight.w600,
+          fontSize: 30.0,
+          color: Colors.white,
+        ),
+        ),
+        onTap: () => _removeTodo(index),
+      ),
     );
   }
+
+//
+//  // ToDo_List 목록에 추가하는 위젯
+//  _buildItem(String todoText, int index) {
+//    return new ListTile(
+//      title: Text(todoText,
+//        style:
+//        TextStyle(
+//          fontSize: 30.0,
+//          color: Colors.white,
+//        ),
+//      ),
+//      onTap: () => _removeTodo(index),
+//    );
+//  }
 
   void _removeTool(int index) {
     setState(() => _todoThings.removeAt(index));
@@ -207,31 +234,19 @@ class AddScreen extends StatelessWidget {
         ),
         ),
         backgroundColor: Colors.grey[400],
-
-        //        children: <Widget>[
-//          Container(
-//            margin: const EdgeInsets.only(
-//              left: 7.0,
-//              right: 7.0,
-//              top: 7.0,
-//              bottom: 7.0,
-//            ),
-//            color: Colors.white,
-//            width: 500.0,
-//            height: 60.0,
-
         body: Container(
           margin: const EdgeInsets.only(
             left: 10.0,
             right: 10.0,
-            top: 10.0,
+            top: 15.0,
             bottom: 10.0,
           ),
-          color: Colors.teal,
+          color: Colors.green[400],
           width: 500.0,
           height: 60.0,
           child: TextField(
             style: TextStyle(
+              fontWeight: FontWeight.w600,
               fontSize: 30.0,
               color: Colors.white,
             ),
