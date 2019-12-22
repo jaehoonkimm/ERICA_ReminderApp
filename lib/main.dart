@@ -64,32 +64,41 @@ class TodoPage extends StatefulWidget {
 
 class TodoPageState extends State<TodoPage> {
   @override
+  List<String> _todoThings = [];
 
-    List<String> _todoThings = [];
-
-    Widget _buildList() {
-      return new ListView.builder(
-          itemBuilder: (context, index) {
-            if (index < _todoThings.length) {
-              return _buildItem(_todoThings[index]);
-        }
+  Widget _buildList() {
+    return new ListView.builder(
+        itemBuilder: (context, index) {
+      if (index < _todoThings.length) {
+        return _buildItem(_todoThings[index]);
       }
-      );
-      }
+    });
+  }
 
-    Widget _buildItem(String todoText) {
-      return new ListTile(
-        title: Text(todoText),
-      );
-    }
+  _buildSwipe(int index) {
+    return Dismissible(
+      key: Key(_todoThings[index]),
+      onDismissed: (direction) {
+        setState(() {
+          _todoThings.removeAt(index);
+        });
+      },
+    );
+  }
 
-    _addItem(String item) {
-      setState(() {
-        //int index = _todoThings.length;
-        //_todoThings.add('ToDo_Item_$index');
-        _todoThings.add(item);
-      });
-    }
+  _buildItem(String todoText) {
+    return new ListTile(
+      title: Text(todoText),
+    );
+  }
+
+  _addItem(String item) {
+    setState(() {
+      //int index = _todoThings.length;
+      //_todoThings.add('ToDo_Item_$index');
+      _todoThings.add(item);
+    });
+  }
 
   _navigatorAddScreen() async {
     Map results = await Navigator.of(context).push(new MaterialPageRoute(
@@ -97,12 +106,12 @@ class TodoPageState extends State<TodoPage> {
         return AddScreen();
       },
     ));
-    if(results != null && results.containsKey("item")) {
+    if (results != null && results.containsKey("item")) {
       _addItem(results["item"]);
     }
   }
 
-    // Scaffold 위젯 생성
+  // Scaffold 위젯 생성
   Widget build(BuildContext context) {
     return new Scaffold(
       // List BackGround color
@@ -110,9 +119,9 @@ class TodoPageState extends State<TodoPage> {
       floatingActionButton: new FloatingActionButton(
         onPressed: _navigatorAddScreen, //버튼 클릭시 _addItem 함수 작동
         child: new Icon(
-            Icons.add,
-            size: 50.0,
-            color: Colors.white,
+          Icons.add,
+          size: 50.0,
+          color: Colors.white,
         ),
       ),
       body: _buildList(),
@@ -144,14 +153,12 @@ class AddScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Text("Add To Do Things")),
+        appBar: AppBar(title: Text("Add To Do Things")),
         body: TextField(
           autofocus: true,
           onSubmitted: (val) {
             Navigator.of(context).pop({'item': val});
           },
-        )
-    );
+        ));
   }
 }
