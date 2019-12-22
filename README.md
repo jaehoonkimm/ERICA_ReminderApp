@@ -7,6 +7,8 @@ ERICA_ReminderApp is a part of projects for open source software class in Erica 
 > - Name : Jaehoon Kim (김재훈)
 
 ## What is ReminderApp?
+<img width="361" alt="1" src="https://user-images.githubusercontent.com/43606451/71322669-a322f080-250d-11ea-869c-3812c46f6867.png">
+
 > This application use Flutter with dart with Google Open source Application development cross platform.
 Usually we often forget things to do. Unfortunately, human memory is not very good, especially when there is a lot to do.
 The more Things you have to do in your brain, the more stressed you are and the less productive you are. 
@@ -14,8 +16,11 @@ Do you want to solve this problem? Then you have to use an app to organize your 
 
 ## Requirements
 > OS : Ubuntu Desktop Linux 18.04 LTS
+
 > Xcode - develop for iOS and macOS (at least xcode 11.0)
+
 > Android Studio (at least version 3.5)
+
 > Flutter (at least v1.9.1)
 
 ## Install
