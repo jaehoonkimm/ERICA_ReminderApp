@@ -5,33 +5,37 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  MyAppState createState() => new MyAppState();
+}
+
+class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return OverlaySupport(
-        child: MaterialApp(
-          home: Scaffold(
-            appBar: PreferredSize(
-              preferredSize: Size.fromHeight(140.0),
-              child: AppBar(
-                bottom: PreferredSize(
-                  child: Text(
-                    'Reminder List',
-                    style: TextStyle(
-                      fontSize: 50.0,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                    ),
+      child: MaterialApp(
+        home: Scaffold(
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(140.0),
+            child: new AppBar(
+              bottom: PreferredSize(
+                child: Text(
+                  'Reminder List',
+                  style: TextStyle(
+                    fontSize: 50.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
                   ),
-                  preferredSize: null,
                 ),
-                backgroundColor: Colors.teal,
-                title: TopBar(),
+                preferredSize: null,
               ),
+              backgroundColor: Colors.teal,
+              title: TopBar(),
             ),
-            body: TodoPage(),
           ),
+          body: TodoPage(),
         ),
+      ),
     );
   }
 
@@ -42,7 +46,37 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
+//// 상단바
+//class TopBar extends StatelessWidget {
+//  @override
+//  Widget build(BuildContext context) {
+//    return Center(
+//      child: Row(
+//        children: <Widget>[
+//          // + 아이콘 추가
+//          const Icon(
+//            Icons.add,
+//            color: Colors.teal,
+//            size: 50.0,
+//          ),
+//          Padding(
+//            padding: const EdgeInsets.only(left: 282.0),
+//            child: IconButton(
+//              icon : Icon(Icons.delete,
+//              color: Colors.white,
+//              size: 50.0,
+//              ),
+//              onPressed: () {
+//                TodoPageState()._deleteAllProcess();
+//              },
+//            ),
+//          ),
+//        ],
+//      ),
+//    );
+//  }
+//}
+//
 // 상단바
 class TopBar extends StatelessWidget {
   @override
@@ -60,8 +94,8 @@ class TopBar extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 282.0),
             child: const Icon(
-              Icons.search,
-              color: Colors.teal,
+              Icons.delete,
+              color: Colors.white,
               size: 50.0,
             ),
           ),
@@ -71,6 +105,7 @@ class TopBar extends StatelessWidget {
   }
 }
 
+List<String> _todoThings = [];
 
 // Todo_Page 표출하는 본체 class
 class TodoPage extends StatefulWidget {
@@ -80,27 +115,20 @@ class TodoPage extends StatefulWidget {
 
 class TodoPageState extends State<TodoPage> {
   @override
-  List<String> _todoThings = [];
 
   Widget _buildList() {
     return new ListView.builder(
         itemBuilder: (context, index) {
-      if (index < _todoThings.length) {
-        return _buildItem(_todoThings[index], index);
-      }
-    });
+          if (index < _todoThings.length) {
+            return _buildItem(_todoThings[index], index);
+          }
+        });
   }
 
-//  _buildSwipe(int index) {
-//    return Dismissible(
-//      key: Key(_todoThings[index]),
-//      onDismissed: (direction) {
-//        setState(() {
-//          _todoThings.removeAt(index);
-//        });
-//      },
-//    );
-//  }
+  _deleteAllItem() {
+    setState(() => _todoThings = []
+    );
+  }
 
   // ToDo_List 목록에 추가하는 위젯
   _buildItem(String todoText, int index) {
@@ -115,32 +143,17 @@ class TodoPageState extends State<TodoPage> {
       height: 60.0,
       child: new ListTile(
         title: Text(todoText,
-        style:
-        TextStyle(
-          fontWeight: FontWeight.w600,
-          fontSize: 30.0,
-          color: Colors.white,
-        ),
+          style:
+          TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 30.0,
+            color: Colors.white,
+          ),
         ),
         onTap: () => _removeTodo(index),
       ),
     );
   }
-
-//
-//  // ToDo_List 목록에 추가하는 위젯
-//  _buildItem(String todoText, int index) {
-//    return new ListTile(
-//      title: Text(todoText,
-//        style:
-//        TextStyle(
-//          fontSize: 30.0,
-//          color: Colors.white,
-//        ),
-//      ),
-//      onTap: () => _removeTodo(index),
-//    );
-//  }
 
   void _removeTool(int index) {
     setState(() => _todoThings.removeAt(index));
@@ -148,11 +161,11 @@ class TodoPageState extends State<TodoPage> {
       Center(
         child: Container(
           child: Text("Task Completed",
-          style: TextStyle(
-            fontSize: 30.0,
-            color: Colors.white,
-            fontWeight: FontWeight.w600,
-          ),),
+            style: TextStyle(
+              fontSize: 30.0,
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),),
         ),
       ),
       background: Colors.lightBlue,
@@ -241,6 +254,13 @@ class TodoPageState extends State<TodoPage> {
     }
   }
 
+  Widget allDelete() {
+    return new Scaffold(
+      floatingActionButton: new FloatingActionButton(
+          onPressed: _deleteAllItem),
+    );
+  }
+
   // Scaffold 위젯 생성
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -256,26 +276,6 @@ class TodoPageState extends State<TodoPage> {
         ),
       ),
       body: _buildList(),
-//      body: ListView(
-//        children: <Widget>[
-//          Container(
-//            margin: const EdgeInsets.only(
-//              left: 7.0,
-//              right: 7.0,
-//              top: 7.0,
-//              bottom: 7.0,
-//            ),
-//            color: Colors.white,
-//            width: 500.0,
-//            height: 60.0,
-//
-//            child: ListTile(
-//              leading: Icon(Icons.arrow_right),
-//              title: Text("할 일"),
-//            ),
-//          ),
-//        ],
-//      ),
     );
   }
 }
@@ -288,19 +288,19 @@ class AddScreen extends StatelessWidget {
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(140.0),
-        child: AppBar(
-          backgroundColor: Colors.teal,
-          bottom: PreferredSize( //PreferredSize를 통해 Text Style 재정의 가능
-        child: Text("Add To Do Things",
-        style:
-          TextStyle(
-            fontSize: 50.0,
-            color: Colors.white,
-            fontWeight: FontWeight.w600,
+          child: AppBar(
+            backgroundColor: Colors.teal,
+            bottom: PreferredSize( //PreferredSize를 통해 Text Style 재정의 가능
+                child: Text("Add To Do Things",
+                  style:
+                  TextStyle(
+                    fontSize: 50.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                  ),
+                )
+            ),
           ),
-        )
-        ),
-        ),
         ),
         backgroundColor: Colors.grey[400],
         body: Container(
@@ -327,3 +327,5 @@ class AddScreen extends StatelessWidget {
         ));
   }
 }
+
+
