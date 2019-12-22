@@ -136,7 +136,15 @@ class TodoPageState extends State<TodoPage> {
       context: context,
       builder: (BuildContext context) {
         return new AlertDialog(
-          title: new Text('"${_todoThings[index]}" Completed this task?'),
+          backgroundColor: Colors.teal[200],
+          title: new Text('"${_todoThings[index]}" Completed this task?',
+          style:
+            TextStyle(
+              fontSize: 20.0,
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
           actions: <Widget>[
             new FlatButton(
                 onPressed: ()=> Navigator.of(context).pop(),
