@@ -18,7 +18,7 @@ void main() {
               ),
               preferredSize: null,
             ),
-            backgroundColor: Colors.blue,
+            backgroundColor: Colors.teal,
             title: TopBar(),
           ),
         ),
