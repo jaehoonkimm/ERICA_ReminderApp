@@ -9,7 +9,9 @@ ERICA_ReminderApp is a part of projects for open source software class in Erica 
 ## Main Screen
 <img width="361" alt="1" src="https://user-images.githubusercontent.com/43606451/71322669-a322f080-250d-11ea-869c-3812c46f6867.png">
 
+## Video
 [![Video Label](https://img.youtube.com/vi/6wlnhxBgVrM/0.jpg)](https://youtu.be/6wlnhxBgVrM)
+### ↑↑↑↑↑ Click It ↑↑↑↑↑
 
 ## What is ReminderApp?
 > This application use Flutter with dart with Google Open source Application development cross platform.
