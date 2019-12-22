@@ -39,14 +39,14 @@ class TopBar extends StatelessWidget {
           // + 아이콘 추가
           const Icon(
             Icons.add,
-            color: Colors.white,
+            color: Colors.teal,
             size: 50.0,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 282.0),
             child: const Icon(
               Icons.search,
-              color: Colors.white,
+              color: Colors.teal,
               size: 50.0,
             ),
           ),
@@ -55,6 +55,7 @@ class TopBar extends StatelessWidget {
     );
   }
 }
+
 
 // Todo_Page 표출하는 본체 class
 class TodoPage extends StatefulWidget {
