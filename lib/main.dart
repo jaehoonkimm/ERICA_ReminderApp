@@ -183,12 +183,16 @@ class AddScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title:
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(140.0),
+        child: AppBar(title:
         Text("Add To Do Things",
         style:
           TextStyle(
             fontSize: 30.0,
-          ),)
+          ),
+        )
+        ),
         ),
         body: TextField(
           autofocus: true,
@@ -198,3 +202,17 @@ class AddScreen extends StatelessWidget {
         ));
   }
 }
+//
+//MaterialApp(
+//home: Scaffold(
+//appBar: PreferredSize(
+//preferredSize: Size.fromHeight(140.0),
+//child: AppBar(
+//bottom: PreferredSize(
+//child: Text(
+//'Reminder List',
+//style: TextStyle(
+//fontSize: 50.0,
+//color: Colors.white,
+//fontWeight: FontWeight.w600,
+//),
