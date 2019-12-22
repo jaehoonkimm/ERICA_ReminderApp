@@ -89,7 +89,12 @@ class TodoPageState extends State<TodoPage> {
   // ToDo_List 목록에 추가하는 위젯
   _buildItem(String todoText, int index) {
     return new ListTile(
-      title: Text(todoText),
+      title: Text(todoText,
+      style:
+      TextStyle(
+        fontSize: 30.0,
+        color: Colors.white,
+      ),),
       onTap: () => _removeTodo(index),
     );
   }
@@ -210,14 +215,3 @@ class AddScreen extends StatelessWidget {
         ));
   }
 }
-//
-//child: AppBar(
-//bottom: PreferredSize(
-//child: Text(
-//'Reminder List',
-//style: TextStyle(
-//fontSize: 50.0,
-//color: Colors.white,
-//fontWeight: FontWeight.w600,
-//),
-//),
