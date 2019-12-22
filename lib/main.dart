@@ -94,7 +94,7 @@ class TodoPageState extends State<TodoPage> {
         right: 10.0,
         top: 15.0,
       ),
-      color: Colors.green[400],
+      color: Colors.teal[200],
       width: 500.0,
       height: 60.0,
       child: new ListTile(
@@ -241,7 +241,7 @@ class AddScreen extends StatelessWidget {
             top: 15.0,
             bottom: 10.0,
           ),
-          color: Colors.green[400],
+          color: Colors.teal[200],
           width: 500.0,
           height: 60.0,
           child: TextField(
