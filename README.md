@@ -7,7 +7,7 @@ ERICA_ReminderApp is a part of projects for open source software class in Erica 
 > - Name : Jaehoon Kim (김재훈)
 
 ## Requirements
-- 
+> 
 
 ## Install
 - 
