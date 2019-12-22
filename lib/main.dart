@@ -179,6 +179,8 @@ class TodoPageState extends State<TodoPage> {
   }
 }
 
+
+// ToDo_Things 추가 Page
 class AddScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -186,6 +188,7 @@ class AddScreen extends StatelessWidget {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(140.0),
         child: AppBar(
+          backgroundColor: Colors.teal,
           bottom: PreferredSize( //PreferredSize를 통해 Text Style 재정의 가능
         child: Text("Add To Do Things",
         style:
@@ -198,6 +201,7 @@ class AddScreen extends StatelessWidget {
         ),
         ),
         ),
+        backgroundColor: Colors.grey[400],
         body: TextField(
           autofocus: true,
           onSubmitted: (val) {
