@@ -147,15 +147,29 @@ class TodoPageState extends State<TodoPage> {
           ),
           actions: <Widget>[
             new FlatButton(
+              color: Colors.white,
                 onPressed: ()=> Navigator.of(context).pop(),
-                child: new Text('Cancel'),
+                child: new Text('Cancel',
+                style:
+                  TextStyle(
+                    color: Colors.teal[200],
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20.0,
+                  ),),
             ),
             new FlatButton(
+              color: Colors.white,
                 onPressed: () {
                   _removeTool(index);
                   Navigator.of(context).pop();
                 },
-                child: new Text('Complete'),
+                child: new Text('Complete',
+                style:
+                  TextStyle(
+                    color: Colors.teal[200],
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20.0,
+                  ),),
             )
           ]
         );
