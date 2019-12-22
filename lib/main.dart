@@ -7,6 +7,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   @override
+  Widget build(BuildContext context) {
     return OverlaySupport(
         child: MaterialApp(
           home: Scaffold(
@@ -31,7 +32,6 @@ class MyApp extends StatelessWidget {
             body: TodoPage(),
           ),
         ),
-        body: TodoPage(),
     );
   }
 
@@ -42,34 +42,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-//void main() {
-//  return runApp(
-//    MaterialApp(
-//      home: Scaffold(
-//        appBar: PreferredSize(
-//          preferredSize: Size.fromHeight(140.0),
-//          child: AppBar(
-//            bottom: PreferredSize(
-//              child: Text(
-//                'Reminder List',
-//                style: TextStyle(
-//                  fontSize: 50.0,
-//                  color: Colors.white,
-//                  fontWeight: FontWeight.w600,
-//                ),
-//              ),
-//              preferredSize: null,
-//            ),
-//            backgroundColor: Colors.teal,
-//            title: TopBar(),
-//          ),
-//        ),
-//        body: TodoPage(),
-//      ),
-//    ),
-//  );
-//}
 
 // 상단바
 class TopBar extends StatelessWidget {
@@ -172,6 +144,17 @@ class TodoPageState extends State<TodoPage> {
 
   void _removeTool(int index) {
     setState(() => _todoThings.removeAt(index));
+    showSimpleNotification(
+      Container(
+        child: Text("Task Completed",
+        style: TextStyle(
+          fontSize: 30.0,
+          color: Colors.white,
+          fontWeight: FontWeight.w600,
+        ),),
+      ),
+      background: Colors.lightBlue,
+    );
   }
 
 
