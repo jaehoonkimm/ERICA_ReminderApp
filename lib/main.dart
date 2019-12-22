@@ -31,6 +31,33 @@ class MyAppState extends State<MyApp> {
               ),
               backgroundColor: Colors.teal,
               title: TopBar(),
+              actions: <Widget>[
+                  Expanded(
+                    child: new IconButton(
+                        icon: Icon(Icons.delete,
+                        size: 50.0,
+                        color: Colors.white,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _todoThings = [];
+                            showSimpleNotification(
+                              Center(
+                                child: Container(
+                                  child: Text("Task All removed",
+                                    style: TextStyle(
+                                      fontSize: 30.0,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                    ),),
+                                ),
+                              ),
+                              background: Colors.lightBlue,
+                            );
+                          });
+                        }),
+                  ),
+              ],
             ),
           ),
           body: TodoPage(),
@@ -46,37 +73,6 @@ class MyAppState extends State<MyApp> {
   }
 }
 
-//// 상단바
-//class TopBar extends StatelessWidget {
-//  @override
-//  Widget build(BuildContext context) {
-//    return Center(
-//      child: Row(
-//        children: <Widget>[
-//          // + 아이콘 추가
-//          const Icon(
-//            Icons.add,
-//            color: Colors.teal,
-//            size: 50.0,
-//          ),
-//          Padding(
-//            padding: const EdgeInsets.only(left: 282.0),
-//            child: IconButton(
-//              icon : Icon(Icons.delete,
-//              color: Colors.white,
-//              size: 50.0,
-//              ),
-//              onPressed: () {
-//                TodoPageState()._deleteAllProcess();
-//              },
-//            ),
-//          ),
-//        ],
-//      ),
-//    );
-//  }
-//}
-//
 // 상단바
 class TopBar extends StatelessWidget {
   @override
@@ -105,6 +101,7 @@ class TopBar extends StatelessWidget {
   }
 }
 
+// To Do Item을 담는 List
 List<String> _todoThings = [];
 
 // Todo_Page 표출하는 본체 class
@@ -112,10 +109,10 @@ class TodoPage extends StatefulWidget {
   @override
   createState() => new TodoPageState();
 }
-
 class TodoPageState extends State<TodoPage> {
   @override
 
+  // Item 추가시 _buildItem 전 경유하는 build 위젯
   Widget _buildList() {
     return new ListView.builder(
         itemBuilder: (context, index) {
@@ -155,6 +152,7 @@ class TodoPageState extends State<TodoPage> {
     );
   }
 
+  // Item 삭제 기능 구현
   void _removeTool(int index) {
     setState(() => _todoThings.removeAt(index));
     showSimpleNotification(
@@ -171,8 +169,6 @@ class TodoPageState extends State<TodoPage> {
       background: Colors.lightBlue,
     );
   }
-
-
 
   //ToDo_List Things 선택(onTap)시 반응 위젯
   _removeTodo(int index) {
@@ -224,6 +220,7 @@ class TodoPageState extends State<TodoPage> {
     );
   }
 
+  //Item 추가 기능 밑 Notification 구현된 위젯
   _addItem(String item) {
     showSimpleNotification(
       Center(
@@ -243,6 +240,7 @@ class TodoPageState extends State<TodoPage> {
     });
   }
 
+  // Screen 전환 밑 AddScreen 호출하는 위젯
   _navigatorAddScreen() async {
     Map results = await Navigator.of(context).push(new MaterialPageRoute(
       builder: (BuildContext context) {
@@ -254,6 +252,7 @@ class TodoPageState extends State<TodoPage> {
     }
   }
 
+  // allDelete 기능 구현된 위젯
   Widget allDelete() {
     return new Scaffold(
       floatingActionButton: new FloatingActionButton(
@@ -262,6 +261,7 @@ class TodoPageState extends State<TodoPage> {
   }
 
   // Scaffold 위젯 생성
+  // 실질 화면 구성 Widget
   Widget build(BuildContext context) {
     return new Scaffold(
       // List BackGround color
@@ -280,8 +280,7 @@ class TodoPageState extends State<TodoPage> {
   }
 }
 
-
-// ToDo_Things 추가 Page
+// ToDo_Things 추가 Page (두 번째 Screen)
 class AddScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
