@@ -1,32 +1,75 @@
 import 'package:flutter/material.dart';
+import 'package:overlay_support/overlay_support.dart';
 
 void main() {
-  return runApp(
-    MaterialApp(
-      home: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(140.0),
-          child: AppBar(
-            bottom: PreferredSize(
-              child: Text(
-                'Reminder List',
-                style: TextStyle(
-                  fontSize: 50.0,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+    return OverlaySupport(
+        child: MaterialApp(
+          home: Scaffold(
+            appBar: PreferredSize(
+              preferredSize: Size.fromHeight(140.0),
+              child: AppBar(
+                bottom: PreferredSize(
+                  child: Text(
+                    'Reminder List',
+                    style: TextStyle(
+                      fontSize: 50.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  preferredSize: null,
                 ),
+                backgroundColor: Colors.teal,
+                title: TopBar(),
               ),
-              preferredSize: null,
             ),
-            backgroundColor: Colors.teal,
-            title: TopBar(),
+            body: TodoPage(),
           ),
         ),
         body: TodoPage(),
-      ),
-    ),
-  );
+    );
+  }
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return null;
+  }
 }
+
+
+//void main() {
+//  return runApp(
+//    MaterialApp(
+//      home: Scaffold(
+//        appBar: PreferredSize(
+//          preferredSize: Size.fromHeight(140.0),
+//          child: AppBar(
+//            bottom: PreferredSize(
+//              child: Text(
+//                'Reminder List',
+//                style: TextStyle(
+//                  fontSize: 50.0,
+//                  color: Colors.white,
+//                  fontWeight: FontWeight.w600,
+//                ),
+//              ),
+//              preferredSize: null,
+//            ),
+//            backgroundColor: Colors.teal,
+//            title: TopBar(),
+//          ),
+//        ),
+//        body: TodoPage(),
+//      ),
+//    ),
+//  );
+//}
 
 // 상단바
 class TopBar extends StatelessWidget {
@@ -131,52 +174,104 @@ class TodoPageState extends State<TodoPage> {
     setState(() => _todoThings.removeAt(index));
   }
 
+
   //ToDo_List Things 선택(onTap)시 반응 위젯
   _removeTodo(int index) {
     showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return new AlertDialog(
-          backgroundColor: Colors.teal[200],
-          title: new Text('"${_todoThings[index]}" Completed this task?',
-          style:
-            TextStyle(
-              fontSize: 20.0,
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          actions: <Widget>[
-            new FlatButton(
-              color: Colors.white,
-                onPressed: ()=> Navigator.of(context).pop(),
-                child: new Text('Cancel',
+        context: context,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+              backgroundColor: Colors.teal[200],
+              title: new Text('"${_todoThings[index]}" Completed this task?',
                 style:
-                  TextStyle(
-                    color: Colors.teal[200],
-                    fontWeight: FontWeight.w600,
-                    fontSize: 20.0,
-                  ),),
-            ),
-            new FlatButton(
-              color: Colors.white,
-                onPressed: () {
-                  _removeTool(index);
-                  Navigator.of(context).pop();
-                },
-                child: new Text('Complete',
-                style:
-                  TextStyle(
-                    color: Colors.teal[200],
-                    fontWeight: FontWeight.w600,
-                    fontSize: 20.0,
-                  ),),
-            )
-          ]
-        );
-      }
+                TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+//                  textBaseline: TextBaseline.ideographic,
+                ),
+              ),
+//              shape: CircleBorder(),
+//              contentPadding: EdgeInsets.all(150.0),
+              actions: <Widget>[
+                new FlatButton(
+                  color: Colors.white,
+                  onPressed: ()=> Navigator.of(context).pop(),
+                  child: new Text('Cancel',
+                    style:
+                    TextStyle(
+                      color: Colors.teal[200],
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20.0,
+                    ),),
+                ),
+                new FlatButton(
+                  color: Colors.white,
+                  onPressed: () {
+                    _removeTool(index);
+                    Navigator.of(context).pop();
+                  },
+                  child: new Text('Complete',
+                    style:
+                    TextStyle(
+                      color: Colors.teal[200],
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20.0,
+                    ),),
+                )
+              ]
+          );
+        }
     );
   }
+
+//
+//  //ToDo_List Things 선택(onTap)시 반응 위젯
+//  _removeTodo(int index) {
+//    showDialog(
+//      context: context,
+//      builder: (BuildContext context) {
+//        return new AlertDialog(
+//          backgroundColor: Colors.teal[200],
+//          title: new Text('"${_todoThings[index]}" Completed this task?',
+//          style:
+//            TextStyle(
+//              fontSize: 20.0,
+//              color: Colors.white,
+//              fontWeight: FontWeight.w600,
+//            ),
+//          ),
+//          actions: <Widget>[
+//            new FlatButton(
+//              color: Colors.white,
+//                onPressed: ()=> Navigator.of(context).pop(),
+//                child: new Text('Cancel',
+//                style:
+//                  TextStyle(
+//                    color: Colors.teal[200],
+//                    fontWeight: FontWeight.w600,
+//                    fontSize: 20.0,
+//                  ),),
+//            ),
+//            new FlatButton(
+//              color: Colors.white,
+//                onPressed: () {
+//                  _removeTool(index);
+//                  Navigator.of(context).pop();
+//                },
+//                child: new Text('Complete',
+//                style:
+//                  TextStyle(
+//                    color: Colors.teal[200],
+//                    fontWeight: FontWeight.w600,
+//                    fontSize: 20.0,
+//                  ),),
+//            )
+//          ]
+//        );
+//      }
+//    );
+//  }
 
 
   _addItem(String item) {
